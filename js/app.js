@@ -1,7 +1,21 @@
+const moves = document.querySelector('.moves');
+const deck = document.querySelector('.deck');
+const fragment = document.createDocumentFragment();
+
 /*
  * 创建一个包含所有卡片的数组
  */
 
+const cards = [
+  "fa-diamond", "fa-diamond",
+  "fa-paper-plane-o", "fa-paper-plane-o",
+  "fa-anchor", "fa-anchor",
+  "fa-bolt", "fa-bolt",
+  "fa-cube", "fa-cube",
+  "fa-leaf", "fa-leaf",
+  "fa-bicycle", "fa-bicycle",
+  "fa-bomb", "fa-bomb"
+  ];
 
 /*
  * 显示页面上的卡片
@@ -9,6 +23,25 @@
  *   - 循环遍历每张卡片，创建其 HTML
  *   - 将每张卡的 HTML 添加到页面
  */
+
+function initGame() {
+  const newCardList = shuffle(cards);
+
+  // 循环遍历创建 li、i 元素，并添加类名
+  for (let i = 0; i < newCardList.length; i++) {
+    const createLi = document.createElement('li');
+    createLi.classList.add('card');
+    const createI = document.createElement('i');
+    createI.classList.add('fa', newCardList[i]);
+    
+    // 将 i 添加为 li 的子元素，再添加到文本片段
+    createLi.appendChild(createI);
+    fragment.appendChild(createLi);
+  }
+  deck.appendChild(fragment);
+  
+}
+
 
 // 洗牌函数来自于 http://stackoverflow.com/a/2450976
 function shuffle(array) {
@@ -21,6 +54,7 @@ function shuffle(array) {
         array[currentIndex] = array[randomIndex];
         array[randomIndex] = temporaryValue;
     }
+
 
     return array;
 }
