@@ -107,3 +107,11 @@ h1 {
     float: right;
     cursor: pointer;
 }
+
+.moves,
+.timer {
+    display: inline-block;
+    width: 30px;
+    margin-left: 10px;
+    text-align: center;
+}
