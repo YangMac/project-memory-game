@@ -123,11 +123,11 @@ function match() {
 function mismatch() {
   // 定时隐藏卡片
   setTimeout(function(){
-    openCardArray[0].classList.remove('open', 'show');
-    openCardArray[1].classList.remove('open', 'show');
-    // 移除禁用
-    openCardArray[0].style.pointerEvents = 'auto';
-    openCardArray[1].style.pointerEvents = 'auto';
+    for (let i = 0; i < openCardArray.length; i++) {
+      openCardArray[i].classList.remove('open', 'show');
+      // 移除禁用
+      openCardArray[i].style.pointerEvents = 'auto';
+    }
     openCardArray = [];
   }, 400);
 }
