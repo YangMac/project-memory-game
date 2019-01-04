@@ -70,6 +70,8 @@ function shuffle(array) {
 // 对卡片点击做出响应
 function respondToTheClick() {
   this.classList.add('open', 'show');
+  // 防止再次点击
+  this.style.pointerEvents = 'none';
   openCardArray.push(this);
   judgeCardArray.push(this.firstChild.getAttribute('class'));
   judgeMatch();
@@ -123,6 +125,9 @@ function mismatch() {
   setTimeout(function(){
     openCardArray[0].classList.remove('open', 'show');
     openCardArray[1].classList.remove('open', 'show');
+    // 移除禁用
+    openCardArray[0].style.pointerEvents = 'auto';
+    openCardArray[1].style.pointerEvents = 'auto';
     openCardArray = [];
   }, 400);
 }
