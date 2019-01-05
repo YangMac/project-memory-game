@@ -78,7 +78,7 @@ function respondToTheClick() {
 }
 
 // 计时器
-var interval;
+let interval;
 function startTimer() {
   interval = setInterval(function() {
     second ++;
@@ -155,11 +155,7 @@ function finish() {
   if (matched.length === 16) {
     stopTimer();
     // 结束提示
-    alert(
-      'Congratulation! 耗时 ' + 
-      second + ' 秒，共移动 ' + 
-      count +' 次，' + 
-      ' 得到 ' + (stars.length - removeStarCount) + ' 颗星！');
+    alert(`Congratulation! 耗时 ${second} 秒，共移动 ${count} 次，得到 ${stars.length - removeStarCount} 颗星！`);
     // 询问是否再玩一次
     if (confirm('您想再来一局吗？')) {
       again();
