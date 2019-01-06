@@ -154,12 +154,15 @@ function scoreCalculation() {
 function finish() {
   if (matched.length === 16) {
     stopTimer();
-    // 结束提示
-    alert(`Congratulation! 耗时 ${second} 秒，共移动 ${count} 次，得到 ${stars.length - removeStarCount} 颗星！`);
-    // 询问是否再玩一次
-    if (confirm('您想再来一局吗？')) {
-      again();
-    }
+    // 使最后一张卡片立即显示，设置时间延迟
+    setTimeout(() => {
+      // 结束提示
+      alert(`Congratulation! 耗时 ${second} 秒，共移动 ${count} 次，得到 ${stars.length - removeStarCount} 颗星！`);
+      // 询问是否再玩一次
+      if (confirm('您想再来一局吗？')) {
+        again();
+      }
+    }, 100);
   }
 }
 
@@ -211,7 +214,7 @@ function startGame() {
   console.log('test');
 }
 
-window.onload = startGame();
+window.onload = startGame;
 
 /*
  * 设置一张卡片的事件监听器。 如果该卡片被点击：
